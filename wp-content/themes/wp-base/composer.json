@@ -5,7 +5,9 @@
         }
     },
     "require": {
+        "php": "^8.0.0",
         "boxybird/inertia-wordpress": "^0.4.4",
-        "elipettingale/wordpress-transformation": "dev-master"
+        "elipettingale/wordpress-transformation": "dev-master",
+        "fakerphp/faker": "^1.16"
     }
 }

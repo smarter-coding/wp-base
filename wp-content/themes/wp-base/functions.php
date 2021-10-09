@@ -26,3 +26,8 @@ add_action('init', function () {
         ]
     ]);
 });
+
+if (class_exists('WP_CLI')) {
+    $command = new \SmarterCoding\WpBase\Commands\Seed();
+    WP_CLI::add_command($command->name, [$command, 'run']);
+}
