@@ -6,9 +6,6 @@ use WP_CLI;
 
 class ServiceProvider
 {
-    protected $commands = [];
-    protected $factories = [];
-
     public function boot()
     {
         $app = app();
@@ -21,9 +18,11 @@ class ServiceProvider
             }
         }
 
-        $app->merge('factories', $this->factories);
+        if (isset($this->factories)) {
+            $app->merge('factories', $this->factories);
+        }
 
-        if (class_exists('WP_CLI')) {
+        if (class_exists('WP_CLI') && isset($this->commands)) {
             foreach ($this->commands as $command) {
                 WP_CLI::add_command($command::NAME, [$command, 'run']);
             }
