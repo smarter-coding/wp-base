@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "SmarterCoding\\WpBase\\": "src/"
+        }
+    },
+    "require": {
+        "boxybird/inertia-wordpress": "^0.4.4"
+    }
+}
