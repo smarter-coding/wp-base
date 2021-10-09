@@ -1,10 +1,9 @@
 <?php
 
 use BoxyBird\Inertia\Inertia;
+use EliPett\Transformation\Services\Transform;
+use SmarterCoding\WpBase\Transformers\PageTransformer;
 
 return Inertia::render('Page', [
-    'page' => [
-        'title' => get_the_title(),
-        'content' => apply_filters('the_content', get_the_content())
-    ]
+    'page' => Transform::one($post, PageTransformer::class)
 ]);

@@ -5,6 +5,7 @@
         }
     },
     "require": {
-        "boxybird/inertia-wordpress": "^0.4.4"
+        "boxybird/inertia-wordpress": "^0.4.4",
+        "elipettingale/wordpress-transformation": "dev-master"
     }
 }
