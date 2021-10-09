@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpBase\Helpers;
+namespace SmarterCoding\WpPlus\Services;
 
 class PostType
 {

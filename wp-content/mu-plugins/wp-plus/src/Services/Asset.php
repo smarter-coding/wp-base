@@ -1,9 +1,9 @@
 <?php
 
-namespace SmarterCoding\WpBase\Helpers;
+namespace SmarterCoding\WpPlus\Services;
 
-use SmarterCoding\WpBase\Structs\ScriptAsset;
-use SmarterCoding\WpBase\Structs\StyleAsset;
+use SmarterCoding\WpPlus\Structs\ScriptAsset;
+use SmarterCoding\WpPlus\Structs\StyleAsset;
 
 class Asset
 {

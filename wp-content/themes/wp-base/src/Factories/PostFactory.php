@@ -3,7 +3,7 @@
 namespace SmarterCoding\WpBase\Factories;
 
 use Faker\Generator;
-use SmarterCoding\WpBase\Contracts\Factory;
+use SmarterCoding\WpPlus\Contracts\Factory;
 
 class PostFactory implements Factory
 {

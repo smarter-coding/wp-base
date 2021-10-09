@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpBase\Contracts;
+namespace SmarterCoding\WpPlus\Contracts;
 
 use Faker\Generator;
 

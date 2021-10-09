@@ -1,0 +1,34 @@
+<?php
+
+namespace SmarterCoding\WpBase\Providers;
+
+use BoxyBird\Inertia\Inertia;
+use SmarterCoding\WpBase\Commands\Seed;
+use SmarterCoding\WpPlus\ServiceProvider;
+use SmarterCoding\WpPlus\Services\Asset;
+
+class ThemeServiceProvider extends ServiceProvider
+{
+    protected $commands = [
+        Seed::class
+    ];
+
+    public function init()
+    {
+        Inertia::share([
+            'site' => [
+                'name' => get_bloginfo('name'),
+                'description'=> get_bloginfo('description'),
+            ]
+        ]);
+    }
+
+    public function wpEnqueueScripts()
+    {
+        Asset::css('css/main.css')
+            ->enqueue();
+
+        Asset::js('js/main.js')
+            ->enqueue();
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpBase\Services;
+namespace SmarterCoding\WpPlus\Services;
 
 use Faker\Provider\Base as FakerBase;
 

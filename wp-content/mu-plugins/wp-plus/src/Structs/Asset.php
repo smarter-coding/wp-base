@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpBase\Structs;
+namespace SmarterCoding\WpPlus\Structs;
 
 class Asset
 {

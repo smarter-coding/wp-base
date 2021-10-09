@@ -1,0 +1,9 @@
+{
+    "name": "smartercoding/wp-plus",
+    "autoload": {
+        "psr-4": {
+            "SmarterCoding\\WpPlus\\": "src/"
+        }
+    },
+    "require": {}
+}

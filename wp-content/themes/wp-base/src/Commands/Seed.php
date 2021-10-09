@@ -3,7 +3,8 @@
 namespace SmarterCoding\WpBase\Commands;
 
 use Faker\Factory;
-use SmarterCoding\WpBase\Services\Faker;
+use SmarterCoding\WpPlus\Services\Faker;
+use SmarterCoding\WpPlus\Command;
 
 class Seed extends Command
 {
