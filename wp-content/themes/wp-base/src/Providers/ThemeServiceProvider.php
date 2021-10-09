@@ -4,13 +4,18 @@ namespace SmarterCoding\WpBase\Providers;
 
 use BoxyBird\Inertia\Inertia;
 use SmarterCoding\WpBase\Commands\Seed;
+use SmarterCoding\WpBase\Factories\PostFactory;
 use SmarterCoding\WpPlus\ServiceProvider;
 use SmarterCoding\WpPlus\Services\Asset;
 
 class ThemeServiceProvider extends ServiceProvider
 {
-    protected $commands = [
+    public $commands = [
         Seed::class
+    ];
+
+    public const FACTORIES = [
+        'post' => PostFactory::class
     ];
 
     public function init()

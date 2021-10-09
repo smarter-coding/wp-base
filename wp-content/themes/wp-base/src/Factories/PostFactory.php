@@ -2,18 +2,17 @@
 
 namespace SmarterCoding\WpBase\Factories;
 
-use Faker\Generator;
-use SmarterCoding\WpPlus\Contracts\Factory;
+use SmarterCoding\WpPlus\Services\Factory;
 
-class PostFactory implements Factory
+class PostFactory extends Factory
 {
-    public function get(Generator $faker): array
+    public function get(): array
     {
         return [
             'post_type' => 'post',
-            'post_title' => $faker->title,
+            'post_title' => $this->faker->text(25),
             'post_status' => 'publish',
-            'post_content' => $faker->wp_paragraphs(1)
+            'post_content' => $this->faker->wp_paragraphs(3)
         ];
     }
 }

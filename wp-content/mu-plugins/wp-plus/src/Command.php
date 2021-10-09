@@ -15,27 +15,27 @@ abstract class Command
     protected const WHITE = "\033[1;38m";
     private const RESET = "\033[0m";
 
-    protected $args;
-    protected $optiions;
+    private $args;
+    private $options;
 
     public abstract function handle(): bool;
 
     public function run(array $args, array $options)
     {
         $this->args = $args;
-        $this->optiions = $options;
+        $this->options = $options;
 
         $this->handle();
-    }
-
-    protected function option($key, $default = null)
-    {
-        return $this->optiions[$key] ?? $default;
     }
 
     protected function arg($index, $default = null)
     {
         return $this->args[$index] ?? $default;
+    }
+
+    protected function option($key, $default = null)
+    {
+        return $this->options[$key] ?? $default;
     }
 
     protected function output($string, $color = null)
@@ -55,5 +55,11 @@ abstract class Command
     {
         $this->output("$string", $color);
         echo "\n";
+    }
+
+    protected function error($error): bool
+    {
+        $this->line($error, self::RED);
+        return false;
     }
 }
