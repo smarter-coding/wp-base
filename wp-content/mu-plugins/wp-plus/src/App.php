@@ -5,7 +5,7 @@ namespace SmarterCoding\WpPlus;
 class App
 {
     private static $instance = null;
-    private $config = [];
+    private $data = [];
 
     private function __construct()
     {
@@ -23,29 +23,29 @@ class App
 
     public function get($key)
     {
-        return $this->config[$key];
+        return $this->data[$key];
     }
 
     public function set($key, $value)
     {
-        $this->config[$key] = $value;
+        $this->data[$key] = $value;
     }
 
     public function push($key, $value)
     {
-        if (!isset($this->config[$key])) {
-            $this->config[$key] = [];
+        if (!isset($this->data[$key])) {
+            $this->data[$key] = [];
         }
 
-        $this->config[$key][] = $value;
+        $this->data[$key][] = $value;
     }
 
     public function merge($key, $values)
     {
-        if (!isset($this->config[$key])) {
-            $this->config[$key] = [];
+        if (!isset($this->data[$key])) {
+            $this->data[$key] = [];
         }
 
-        $this->config[$key] = array_merge($this->config[$key], $values);
+        $this->data[$key] = array_merge($this->data[$key], $values);
     }
 }
