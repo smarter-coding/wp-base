@@ -4,7 +4,7 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3'
 document.addEventListener("DOMContentLoaded", () => {
 
     createInertiaApp({
-        resolve: name => require(`./Pages/${name}`),
+        resolve: name => require(`./Templates/${name}`),
         setup({ el, App, props, plugin }) {
             createApp({ render: () => h(App, props) })
                 .use(plugin)
