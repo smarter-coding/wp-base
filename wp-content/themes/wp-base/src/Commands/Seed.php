@@ -2,7 +2,6 @@
 
 namespace SmarterCoding\WpBase\Commands;
 
-use SmarterCoding\WpBase\Providers\ThemeServiceProvider;
 use SmarterCoding\WpPlus\Command;
 
 class Seed extends Command
@@ -14,13 +13,16 @@ class Seed extends Command
         $post_type = $this->arg(0);
         $number = $this->arg(1);
 
-        if (!array_key_exists($post_type, ThemeServiceProvider::FACTORIES)) {
+        $factories = app()->get('factories');
+
+        if (!array_key_exists($post_type, $factories)) {
             return $this->error("There is no registered factory for post type: $post_type");
         }
 
-        $class = ThemeServiceProvider::FACTORIES[$post_type];
-        $factory = new $class();
+        $factory = new $factories[$post_type]();
         $factory->make($number);
+
+        $this->line("Created $number posts of type: $post_type", self::GREEN);
 
         return true;
     }

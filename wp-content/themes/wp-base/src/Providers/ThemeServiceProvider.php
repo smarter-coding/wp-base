@@ -10,11 +10,11 @@ use SmarterCoding\WpPlus\Services\Asset;
 
 class ThemeServiceProvider extends ServiceProvider
 {
-    public $commands = [
+    protected $commands = [
         Seed::class
     ];
 
-    public const FACTORIES = [
+    protected $factories = [
         'post' => PostFactory::class
     ];
 
