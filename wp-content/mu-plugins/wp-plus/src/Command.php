@@ -15,6 +15,8 @@ abstract class Command
     protected const WHITE = "\033[1;38m";
     private const RESET = "\033[0m";
 
+    protected $signature = '';
+
     private $args;
     private $options;
 
@@ -22,15 +24,45 @@ abstract class Command
 
     public function run(array $args, array $options)
     {
-        $this->args = $args;
-        $this->options = $options;
+        try {
 
-        $this->handle();
+            $signature = explode(' ', $this->signature);
+            $expectedArgs = [];
+            $expectedOptions = [];
+
+            foreach ($signature as $key) {
+                $key = substr($key, 1, -1);
+
+                if (substr($key, 0, 2) === '--') {
+                    $expectedOptions[] = $key;
+                } else {
+                    $expectedArgs[] = $key;
+                }
+            }
+
+            foreach ($expectedArgs as $index => $expectedArg) {
+                if (!isset($args[$index])) {
+                    throw new \InvalidArgumentException("Missing argument: {$expectedArg}");
+                }
+
+                $this->args[$expectedArg] = $args[$index];
+            }
+
+            foreach ($expectedOptions as $expectedOption) {
+                $expectedOption = substr($expectedOption, 2);
+                $this->options[$expectedOption] = $options[$expectedOption] ?? false;
+            }
+
+            $this->handle();
+
+        } catch (\Exception $exception) {
+            $this->error($exception->getMessage());
+        }
     }
 
-    protected function arg($index, $default = null)
+    protected function arg($key, $default = null)
     {
-        return $this->args[$index] ?? $default;
+        return $this->args[$key] ?? $default;
     }
 
     protected function option($key, $default = null)

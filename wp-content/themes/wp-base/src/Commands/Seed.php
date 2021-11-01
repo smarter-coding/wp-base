@@ -7,11 +7,12 @@ use SmarterCoding\WpPlus\Command;
 class Seed extends Command
 {
     public const NAME = 'seed';
+    protected $signature = '{post_type} {number}';
 
     public function handle(): bool
     {
-        $post_type = $this->arg(0);
-        $number = $this->arg(1);
+        $post_type = $this->arg('post_type');
+        $number = $this->arg('number');
 
         $factories = app()->get('factories');
 
