@@ -4,17 +4,7 @@ namespace SmarterCoding\WpPlus;
 
 class Config
 {
-    private static $instance = null;
     private $data = [];
-
-    public static function getInstance(): Config
-    {
-        if (self::$instance === null) {
-            self::$instance = new Config();
-        }
-
-        return self::$instance;
-    }
 
     public function get($key)
     {
@@ -22,6 +12,10 @@ class Config
         $data = $this->data;
 
         foreach ($keys as $key) {
+            if (!isset($data[$key])) {
+                return null;
+            }
+
             $data = $data[$key];
         }
 

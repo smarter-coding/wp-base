@@ -6,6 +6,7 @@ class App
 {
     private static $instance = null;
     private $data = [];
+    private $singletons = [];
 
     public static function getInstance(): App
     {
@@ -42,5 +43,14 @@ class App
         }
 
         $this->data[$key] = array_merge($this->data[$key], $values);
+    }
+
+    public function singleton($class): mixed
+    {
+        if (!isset($this->singletons[$class])) {
+            $this->singletons[$class] = new $class();
+        }
+
+        return $this->singletons[$class];
     }
 }

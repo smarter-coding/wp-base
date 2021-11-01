@@ -18,5 +18,5 @@ function app(): App
 
 function config(): Config
 {
-    return Config::getInstance();
+    return app()->singleton(Config::class);
 }
