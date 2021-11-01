@@ -18,6 +18,22 @@ class ThemeServiceProvider extends ServiceProvider
         'post' => PostFactory::class
     ];
 
+    public function boot()
+    {
+        parent::boot();
+
+        config()->load(__DIR__ . '/../../config/*');
+    }
+
+    public function afterSetupTheme()
+    {
+        $features = config()->get('theme.supports');
+
+        foreach ($features as $feature) {
+            add_theme_support($feature);
+        }
+    }
+
     public function init()
     {
         Inertia::share([
@@ -25,6 +41,10 @@ class ThemeServiceProvider extends ServiceProvider
                 'name' => get_bloginfo('name'),
                 'description'=> get_bloginfo('description'),
             ]
+        ]);
+
+        register_nav_menus([
+            'main_menu' => __('Main Menu')
         ]);
     }
 
