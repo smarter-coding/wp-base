@@ -8,8 +8,6 @@
         "php": "^8.0.0",
         "boxybird/inertia-wordpress": "^0.4.4",
         "elipettingale/wordpress-transformation": "dev-master",
-        "fakerphp/faker": "^1.16",
-        "psr/container": "^1.0",
-        "rareloop/router": "^6.0"
+        "fakerphp/faker": "^1.16"
     }
 }
