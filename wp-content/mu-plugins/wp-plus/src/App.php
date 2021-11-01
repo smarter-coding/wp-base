@@ -7,11 +7,6 @@ class App
     private static $instance = null;
     private $data = [];
 
-    private function __construct()
-    {
-        //
-    }
-
     public static function getInstance(): App
     {
         if (self::$instance === null) {

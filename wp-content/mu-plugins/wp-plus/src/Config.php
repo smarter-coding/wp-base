@@ -7,11 +7,6 @@ class Config
     private static $instance = null;
     private $data = [];
 
-    private function __construct()
-    {
-        //
-    }
-
     public static function getInstance(): Config
     {
         if (self::$instance === null) {
