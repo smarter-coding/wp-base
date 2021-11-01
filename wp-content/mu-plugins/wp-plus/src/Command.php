@@ -26,6 +26,8 @@ abstract class Command
     {
         try {
 
+            // todo: messy, refactor this
+
             $signature = explode(' ', $this->signature);
             $expectedArgs = [];
             $expectedOptions = [];
