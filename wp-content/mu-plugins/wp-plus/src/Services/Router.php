@@ -14,7 +14,10 @@ class Router
     public static function init()
     {
         if ($route = self::router()->match()) {
-            $response = call_user_func($route['target'], $route['params']);
+            $request = Request::createFromGlobals();
+            $request->setRouteParameters($route['params']);
+
+            $response = call_user_func($route['target'], $request);
             $response->send();
         }
     }
