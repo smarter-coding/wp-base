@@ -7,9 +7,6 @@
     "require": {
         "php": "^8.0.0",
         "boxybird/inertia-wordpress": "^0.4.4",
-        "elipettingale/wordpress-transformation": "dev-master",
-        "fakerphp/faker": "^1.16",
-        "altorouter/altorouter": "^2.0",
-        "symfony/http-foundation": "^5.3"
+        "elipettingale/wordpress-transformation": "dev-master"
     }
 }

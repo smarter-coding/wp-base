@@ -1,32 +1,27 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/helpers.php';
 
-use SmarterCoding\WpPlus\App;
-use SmarterCoding\WpPlus\Helpers\Config;
-use SmarterCoding\WpPlus\Helpers\Response;
 use SmarterCoding\WpPlus\AppServiceProvider;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 $appServiceProvider = new AppServiceProvider();
 $appServiceProvider->boot();
 
-function dd($dump)
-{
-    var_dump($dump);
-    die();
-}
+global $wpdb;
+$capsule = new Capsule;
 
-function app(): App
-{
-    return App::getInstance();
-}
+$capsule->addConnection([
+    'driver' => 'mysql',
+    'host' => DB_HOST,
+    'database' => DB_NAME,
+    'username' => DB_USER,
+    'password' => DB_PASSWORD,
+    'charset' => DB_CHARSET,
+    'collation' => DB_COLLATE,
+    'prefix' => $wpdb->prefix,
+]);
 
-function config(): Config
-{
-    return app()->singleton(Config::class);
-}
-
-function response()
-{
-    return new Response();
-}
+$capsule->setAsGlobal();
+$capsule->bootEloquent();

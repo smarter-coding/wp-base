@@ -28,31 +28,34 @@ abstract class Command
 
             // todo: messy, refactor this
 
-            $signature = explode(' ', $this->signature);
             $expectedArgs = [];
             $expectedOptions = [];
 
-            foreach ($signature as $key) {
-                $key = substr($key, 1, -1);
+            if ($this->signature) {
+                $signature = explode(' ', $this->signature);
 
-                if (substr($key, 0, 2) === '--') {
-                    $expectedOptions[] = $key;
-                } else {
-                    $expectedArgs[] = $key;
-                }
-            }
+                foreach ($signature as $key) {
+                    $key = substr($key, 1, -1);
 
-            foreach ($expectedArgs as $index => $expectedArg) {
-                if (!isset($args[$index])) {
-                    throw new \InvalidArgumentException("Missing argument: {$expectedArg}");
+                    if (substr($key, 0, 2) === '--') {
+                        $expectedOptions[] = $key;
+                    } else {
+                        $expectedArgs[] = $key;
+                    }
                 }
 
-                $this->args[$expectedArg] = $args[$index];
-            }
+                foreach ($expectedArgs as $index => $expectedArg) {
+                    if (!isset($args[$index])) {
+                        throw new \InvalidArgumentException("Missing argument: {$expectedArg}");
+                    }
 
-            foreach ($expectedOptions as $expectedOption) {
-                $expectedOption = substr($expectedOption, 2);
-                $this->options[$expectedOption] = $options[$expectedOption] ?? false;
+                    $this->args[$expectedArg] = $args[$index];
+                }
+
+                foreach ($expectedOptions as $expectedOption) {
+                    $expectedOption = substr($expectedOption, 2);
+                    $this->options[$expectedOption] = $options[$expectedOption] ?? false;
+                }
             }
 
             $this->handle();
