@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpPlus\Services;
+namespace SmarterCoding\WpPlus\Helpers;
 
 class Config
 {

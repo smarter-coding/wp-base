@@ -2,7 +2,7 @@
 
 namespace SmarterCoding\WpBase\Commands;
 
-use SmarterCoding\WpPlus\Services\Command;
+use SmarterCoding\WpPlus\Commands\Command;
 
 class Seed extends Command
 {

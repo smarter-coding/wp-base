@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpPlus\Services;
+namespace SmarterCoding\WpPlus\Helpers;
 
 use BoxyBird\Inertia\Inertia;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;

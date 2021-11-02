@@ -6,8 +6,8 @@ use BoxyBird\Inertia\Inertia;
 use SmarterCoding\WpBase\Commands\Seed;
 use SmarterCoding\WpBase\Factories\PostFactory;
 use SmarterCoding\WpPlus\ServiceProvider;
-use SmarterCoding\WpPlus\Services\Asset;
-use SmarterCoding\WpPlus\Services\Router;
+use SmarterCoding\WpPlus\Helpers\Asset;
+use SmarterCoding\WpPlus\Helpers\Router;
 
 class ThemeServiceProvider extends ServiceProvider
 {

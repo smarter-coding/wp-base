@@ -1,8 +1,9 @@
 <?php
 
-namespace SmarterCoding\WpPlus\Services;
+namespace SmarterCoding\WpPlus\Factories;
 
 use Faker\Factory as FakerFactory;
+use SmarterCoding\WpPlus\Services\Faker;
 use WP_Error;
 
 abstract class Factory

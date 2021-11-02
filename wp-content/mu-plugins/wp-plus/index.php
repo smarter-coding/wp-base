@@ -3,8 +3,8 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use SmarterCoding\WpPlus\App;
-use SmarterCoding\WpPlus\Services\Config;
-use SmarterCoding\WpPlus\Services\Response;
+use SmarterCoding\WpPlus\Helpers\Config;
+use SmarterCoding\WpPlus\Helpers\Response;
 
 function dd($dump)
 {

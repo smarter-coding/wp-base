@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpPlus\Services;
+namespace SmarterCoding\WpPlus\Commands;
 
 abstract class Command
 {

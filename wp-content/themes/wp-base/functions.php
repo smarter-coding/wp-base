@@ -5,8 +5,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 use EliPett\Transformation\Services\Transform;
 use SmarterCoding\WpBase\Transformers\PostTransformer;
 use SmarterCoding\WpBase\Providers\ThemeServiceProvider;
-use SmarterCoding\WpPlus\Services\Router;
-use SmarterCoding\WpPlus\Services\Request;
+use SmarterCoding\WpPlus\Helpers\Router;
+use SmarterCoding\WpPlus\Structs\Request;
 
 $themeServiceProvider = new ThemeServiceProvider();
 $themeServiceProvider->boot();

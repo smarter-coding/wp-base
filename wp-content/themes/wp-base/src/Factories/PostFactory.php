@@ -2,7 +2,7 @@
 
 namespace SmarterCoding\WpBase\Factories;
 
-use SmarterCoding\WpPlus\Services\Factory;
+use SmarterCoding\WpPlus\Factories\Factory;
 
 class PostFactory extends Factory
 {

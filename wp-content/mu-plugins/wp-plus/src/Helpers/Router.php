@@ -1,8 +1,9 @@
 <?php
 
-namespace SmarterCoding\WpPlus\Services;
+namespace SmarterCoding\WpPlus\Helpers;
 
 use AltoRouter;
+use SmarterCoding\WpPlus\Structs\Request;
 
 class Router
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpPlus\Services;
+namespace SmarterCoding\WpPlus\Structs;
 
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 

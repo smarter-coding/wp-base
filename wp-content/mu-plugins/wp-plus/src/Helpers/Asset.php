@@ -1,6 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpPlus\Services;
+namespace SmarterCoding\WpPlus\Helpers;
 
 use SmarterCoding\WpPlus\Structs\ScriptAsset;
 use SmarterCoding\WpPlus\Structs\StyleAsset;
