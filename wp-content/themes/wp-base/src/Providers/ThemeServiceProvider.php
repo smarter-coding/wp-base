@@ -7,6 +7,7 @@ use SmarterCoding\WpBase\Commands\Seed;
 use SmarterCoding\WpBase\Factories\PostFactory;
 use SmarterCoding\WpPlus\ServiceProvider;
 use SmarterCoding\WpPlus\Services\Asset;
+use SmarterCoding\WpPlus\Services\Router;
 
 class ThemeServiceProvider extends ServiceProvider
 {
@@ -46,6 +47,14 @@ class ThemeServiceProvider extends ServiceProvider
         register_nav_menus([
             'main_menu' => __('Main Menu')
         ]);
+    }
+
+    public function wpLoaded()
+    {
+        if ($route = Router::match()) {
+            $response = call_user_func($route['target'], $route['params']);
+            $response->send();
+        }
     }
 
     public function wpEnqueueScripts()
