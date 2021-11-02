@@ -51,10 +51,7 @@ class ThemeServiceProvider extends ServiceProvider
 
     public function wpLoaded()
     {
-        if ($route = Router::match()) {
-            $response = call_user_func($route['target'], $route['params']);
-            $response->send();
-        }
+        Router::init();
     }
 
     public function wpEnqueueScripts()

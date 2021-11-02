@@ -11,9 +11,12 @@ class Router
         return app()->singleton(AltoRouter::class);
     }
 
-    public static function match()
+    public static function init()
     {
-        return self::router()->match();
+        if ($route = self::router()->match()) {
+            $response = call_user_func($route['target'], $route['params']);
+            $response->send();
+        }
     }
 
     public static function get($route, $callable)
