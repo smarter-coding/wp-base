@@ -3,7 +3,6 @@
 namespace SmarterCoding\WpBase\Providers;
 
 use BoxyBird\Inertia\Inertia;
-use SmarterCoding\WpBase\Commands\Seed;
 use SmarterCoding\WpBase\Factories\PostFactory;
 use SmarterCoding\WpPlus\ServiceProvider;
 use SmarterCoding\WpPlus\Helpers\Asset;
@@ -12,7 +11,7 @@ use SmarterCoding\WpPlus\Helpers\Router;
 class ThemeServiceProvider extends ServiceProvider
 {
     protected $commands = [
-        Seed::class
+        //
     ];
 
     protected $factories = [

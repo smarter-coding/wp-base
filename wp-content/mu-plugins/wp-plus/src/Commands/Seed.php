@@ -1,8 +1,6 @@
 <?php
 
-namespace SmarterCoding\WpBase\Commands;
-
-use SmarterCoding\WpPlus\Commands\Command;
+namespace SmarterCoding\WpPlus\Commands;
 
 class Seed extends Command
 {
