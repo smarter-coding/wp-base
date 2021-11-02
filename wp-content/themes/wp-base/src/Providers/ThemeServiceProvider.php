@@ -22,7 +22,8 @@ class ThemeServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        config()->load(__DIR__ . '/../../config/*');
+        $this->loadConfig(__DIR__ . '/../../config/*');
+        $this->loadMigrations(__DIR__ . '/../../migrations/*');
     }
 
     public function afterSetupTheme()
