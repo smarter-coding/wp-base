@@ -28,7 +28,7 @@ class Migrate extends Command
         // todo: ensure migrations are run in order of timestamp
 
         foreach ($paths as $path) {
-            foreach (glob($path) as $migration_path) {
+            foreach (glob($path . '/*') as $migration_path) {
                 $this->migrate($migration_path);
             }
         }

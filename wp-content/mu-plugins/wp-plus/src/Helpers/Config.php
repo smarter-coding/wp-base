@@ -24,7 +24,7 @@ class Config
 
     public function load($path)
     {
-        foreach (glob($path) as $file) {
+        foreach (glob($path . '/*') as $file) {
             $filename = substr(basename($file), 0, -4);
             $this->data[$filename] = include $file;
         }

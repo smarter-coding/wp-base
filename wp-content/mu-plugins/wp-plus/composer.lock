@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56853a4f1e690ea370e831da6b443ce6",
+    "content-hash": "36c793b5f1a5c77a006a2ff22b6e62f7",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -156,6 +156,46 @@
                 }
             ],
             "time": "2021-10-22T20:16:43+00:00"
+        },
+        {
+            "name": "elipettingale/case-converter",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elipettingale/case-converter.git",
+                "reference": "4ac2d8bf903b7280df1a4387a7fe874421066fcf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elipettingale/case-converter/zipball/4ac2d8bf903b7280df1a4387a7fe874421066fcf",
+                "reference": "4ac2d8bf903b7280df1a4387a7fe874421066fcf",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EliPett\\CaseConverter\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Elliot Pettingale",
+                    "email": "elipettingale@gmail.com"
+                }
+            ],
+            "description": "Some helper functions for quickly converting strings to various cases.",
+            "support": {
+                "issues": "https://github.com/elipettingale/case-converter/issues",
+                "source": "https://github.com/elipettingale/case-converter/tree/v1.4.1"
+            },
+            "time": "2021-04-09T13:44:15+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -749,6 +789,37 @@
                 "source": "https://github.com/php-fig/simple-cache/tree/master"
             },
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "smartercoding/file-generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/elipettingale/file-generator.git",
+                "reference": "98bf13571deacb14ee0ae425a5a1f20f240277cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/elipettingale/file-generator/zipball/98bf13571deacb14ee0ae425a5a1f20f240277cb",
+                "reference": "98bf13571deacb14ee0ae425a5a1f20f240277cb",
+                "shasum": ""
+            },
+            "require": {
+                "elipettingale/case-converter": "^1.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SmarterCoding\\FileGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "issues": "https://github.com/elipettingale/file-generator/issues",
+                "source": "https://github.com/elipettingale/file-generator/tree/master"
+            },
+            "time": "2021-11-03T08:56:01+00:00"
         },
         {
             "name": "symfony/console",
@@ -1888,7 +1959,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "smartercoding/file-generator": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

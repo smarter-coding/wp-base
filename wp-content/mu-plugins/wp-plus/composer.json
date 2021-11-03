@@ -10,6 +10,7 @@
         "altorouter/altorouter": "^2.0",
         "symfony/http-foundation": "^5.3",
         "psr/container": "^1.0",
-        "illuminate/database": "^8.68"
+        "illuminate/database": "^8.68",
+        "smartercoding/file-generator": "dev-master"
     }
 }
