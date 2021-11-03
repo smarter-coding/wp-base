@@ -4,6 +4,7 @@ namespace SmarterCoding\WpPlus\Helpers;
 
 use AltoRouter;
 use SmarterCoding\WpPlus\Structs\Request;
+use ReflectionParameter;
 
 class Router
 {
@@ -15,7 +16,11 @@ class Router
     public static function init()
     {
         if ($route = self::router()->match()) {
-            $request = Request::createFromGlobals();
+            $requestType = (new ReflectionParameter($route['target'], 'request'))
+                ->getType()
+                ->getName();
+
+            $request = $requestType::createFromGlobals();
             $request->setRouteParameters($route['params']);
 
             $response = call_user_func($route['target'], $request);
