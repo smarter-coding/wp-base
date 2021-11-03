@@ -20,7 +20,7 @@ function config(): Config
     return app()->singleton(Config::class);
 }
 
-function response()
+function response(): Response
 {
     return new Response();
 }

@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class Response
 {
-    public static function render(string $component, $props = [])
+    public function render(string $component, $props = [])
     {
         ob_start();
         Inertia::render($component, $props);
@@ -18,7 +18,7 @@ class Response
         ]);
     }
 
-    public static function json($content)
+    public function json($content)
     {
         $content = json_encode($content);
 
