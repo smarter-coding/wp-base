@@ -20,19 +20,31 @@ class Make extends Command
     private function makeMigration()
     {
         $name = $this->arg('name');
-
-        $migrationPaths = app()->get('migrations');
-
-        if (!isset($migrationPaths[0])) {
-            throw new \InvalidArgumentException("No migration path is set");
-        }
-
-        $migrationPath = $migrationPaths[0];
-
         $filename = date('Y_m_d_His') . "_{$name}.php";
 
         $generator = new Generator(__DIR__ . '/../Templates/generators/migration.gen');
-        $generator->generate($migrationPath . '/' . $filename, [
+        $generator->generate(get_template_directory() . '/migrations/' . $filename, [
+            'name' => $name
+        ]);
+
+        return true;
+    }
+
+    public function makeCommand()
+    {
+        $name = $this->arg('name');
+        $filename = upper_camel_case($name) . '.php';
+
+        $autoload = json_decode(
+            file_get_contents(get_template_directory() . '/composer.json'), true
+        )['autoload']['psr-4'];
+
+        $namespace = array_key_first($autoload);
+        $src = $autoload[$namespace];
+
+        $generator = new Generator(__DIR__ . '/../Templates/generators/command.gen');
+        $generator->generate(get_template_directory() . "/{$src}Commands/{$filename}", [
+            'namespace' => $namespace,
             'name' => $name
         ]);
 
