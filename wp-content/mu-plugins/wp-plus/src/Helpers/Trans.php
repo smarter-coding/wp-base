@@ -17,7 +17,7 @@ class Trans
         $this->loader = new FileLoader($this->filesystem, __DIR__ . '/../../lang');
     }
 
-    public function load($namespace, $path)
+    public function load($path, $namespace)
     {
         $this->loader->addNamespace($namespace, $path);
 
@@ -30,6 +30,6 @@ class Trans
     public function get($key, $replace = [])
     {
         $translator = new Translator($this->loader, 'en');
-        dd($translator->get("lang::" . $key, $replace, 'en'));
+        return $translator->get($key, $replace, 'en');
     }
 }

@@ -18,7 +18,7 @@ class ServiceProvider
 
     public function loadTranslations($path, $namespace)
     {
-        trans()->load($namespace, $path);
+        trans()->load($path, $namespace);
     }
 
     public function boot()
