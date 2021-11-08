@@ -31,7 +31,7 @@ Router::middleware('web', function() {
 
     Router::post('/foo', function(TestRequest $request) {
         session()->flash('foo', 'bar');
-        redirect()->to('/foo');
+        redirect()->route('foo.show');
     }, 'foo.handle');
 
 });
