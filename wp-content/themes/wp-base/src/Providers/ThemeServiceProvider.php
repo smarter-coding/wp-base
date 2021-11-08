@@ -24,6 +24,9 @@ class ThemeServiceProvider extends ServiceProvider
 
         $this->loadConfig(__DIR__ . '/../../config');
         $this->loadMigrations(__DIR__ . '/../../migrations');
+        $this->loadTranslations(__DIR__ . '/../../lang', 'lang');
+
+        dd(trans()->get('foo.bar'));
     }
 
     public function afterSetupTheme()

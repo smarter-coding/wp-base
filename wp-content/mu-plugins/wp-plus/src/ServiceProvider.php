@@ -16,6 +16,11 @@ class ServiceProvider
         app()->push('migrations', $path);
     }
 
+    public function loadTranslations($path, $namespace)
+    {
+        trans()->load($namespace, $path);
+    }
+
     public function boot()
     {
         $app = app();

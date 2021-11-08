@@ -19,6 +19,10 @@ class App
 
     public function get($key)
     {
+        if (!isset($this->data[$key])) {
+            return null;
+        }
+
         return $this->data[$key];
     }
 

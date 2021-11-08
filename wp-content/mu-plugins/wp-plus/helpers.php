@@ -5,6 +5,7 @@ use SmarterCoding\WpPlus\Helpers\Config;
 use SmarterCoding\WpPlus\Helpers\Response;
 use SmarterCoding\WpPlus\Helpers\Redirect;
 use SmarterCoding\WpPlus\Helpers\Session;
+use SmarterCoding\WpPlus\Helpers\Trans;
 
 function dd($dump)
 {
@@ -35,4 +36,9 @@ function redirect(): Redirect
 function session(): Session
 {
     return app()->singleton(Session::class);
+}
+
+function trans(): Trans
+{
+    return app()->singleton(Trans::class);
 }
