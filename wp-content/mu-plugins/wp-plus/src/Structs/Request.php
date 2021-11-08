@@ -2,10 +2,8 @@
 
 namespace SmarterCoding\WpPlus\Structs;
 
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Translation\FileLoader;
-use Illuminate\Translation\Translator;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\MessageBag;
+use Illuminate\Validation\Factory;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 class Request extends SymfonyRequest
@@ -15,6 +13,11 @@ class Request extends SymfonyRequest
     public function setRouteParameters($parameters)
     {
         $this->routeParameters = $parameters;
+    }
+
+    public function errors(): MessageBag
+    {
+        return session()->get('errors') ?? new MessageBag();
     }
 
     public function route($key)
@@ -29,10 +32,11 @@ class Request extends SymfonyRequest
     public function validate()
     {
         if (method_exists($this, 'rules')) {
-            $valid = true; // todo: return Validation::validate($this->rules(), $this->request->all())
+            $factory = new Factory(trans()->translator());
+            $validator = $factory->make($this->request->all(), $this->rules());
 
-            if (!$valid) {
-                // todo: flash errors
+            if (!$validator->passes()) {
+                session()->flash('errors', $validator->errors());
                 $url = $this->headers->get('referer');
                 redirect()->to($url);
             }

@@ -6,6 +6,7 @@ use SmarterCoding\WpPlus\Helpers\Response;
 use SmarterCoding\WpPlus\Helpers\Redirect;
 use SmarterCoding\WpPlus\Helpers\Session;
 use SmarterCoding\WpPlus\Helpers\Trans;
+use Illuminate\Support\MessageBag;
 
 function dd($dump)
 {
@@ -41,4 +42,9 @@ function session(): Session
 function trans(): Trans
 {
     return app()->singleton(Trans::class);
+}
+
+function errors(): MessageBag
+{
+    return session()->get('errors') ?? new MessageBag();
 }

@@ -9,7 +9,8 @@ class TestRequest extends Request
     public function rules()
     {
         return [
-            'foo' => ['required']
+            'foo' => ['required'],
+            'bar' => ['required']
         ];
     }
 }

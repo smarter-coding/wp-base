@@ -11,13 +11,17 @@ $themeServiceProvider = new ThemeServiceProvider();
 $themeServiceProvider->boot();
 
 Router::get('/foo', function(Request $request) {
-    $foo = session()->get('foo');
-
     return response()
         ->html("
-            <p>{$foo}</p>
             <form method='post'>
-                <input type='hidden' name='foo' value='bar' />
+                <div>
+                    <input type='text' name='foo' />
+                    {$request->errors()->first('foo')}
+                </div>
+                <div>
+                    <input type='text' name='bar' />
+                    {$request->errors()->first('bar')}
+                </div>
                 <button type='submit'>Submit</button>
             </form>
         ");
