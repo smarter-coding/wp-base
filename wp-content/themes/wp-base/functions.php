@@ -27,11 +27,14 @@ Router::middleware('web', function() {
                     <button type='submit'>Submit</button>
                 </form>
             ");
-    });
+    }, 'foo.show');
 
     Router::post('/foo', function(TestRequest $request) {
         session()->flash('foo', 'bar');
         redirect()->to('/foo');
-    });
+    }, 'foo.handle');
 
 });
+
+// todo: extend altorouter, possibly just copy to new repo if it's easier
+// include modified $meta feature (much better than adding any other feature as it can be used for literally anything without further modification)

@@ -53,18 +53,17 @@ class Router
         self::$middleware = null;
     }
 
-    public static function get($route, $callable)
+    public static function get($route, $callable, $name = null)
     {
         self::router()->map('GET', $route, $callable, [
             'middleware' => self::$middleware
-        ]);
+        ], $name);
     }
 
-    public static function post($route, $callable)
+    public static function post($route, $callable, $name = null)
     {
         self::router()->map('POST', $route, $callable, [
             'middleware' => self::$middleware
-        ]);
+        ], $name);
     }
 }
-
