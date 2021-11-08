@@ -20,8 +20,10 @@ class Router
                 ->getType()
                 ->getName();
 
+            /** @var Request $request */
             $request = $requestType::createFromGlobals();
             $request->setRouteParameters($route['params']);
+            $request->validate();
 
             $response = call_user_func($route['target'], $request);
             $response->send();

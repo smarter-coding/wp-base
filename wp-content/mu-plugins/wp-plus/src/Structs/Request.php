@@ -21,4 +21,17 @@ class Request extends SymfonyRequest
 
         return $this->routeParameters[$key];
     }
+
+    public function validate()
+    {
+        if (method_exists($this, 'rules')) {
+            $valid = true; // todo: return Validation::validate($this->rules(), $this->request->all())
+
+            if (!$valid) {
+                // todo: flash errors
+                $url = $this->headers->get('referer');
+                redirect()->to($url);
+            }
+        }
+    }
 }

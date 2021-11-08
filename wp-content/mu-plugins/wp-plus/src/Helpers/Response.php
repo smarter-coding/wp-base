@@ -18,6 +18,13 @@ class Response
         ]);
     }
 
+    public function html($html)
+    {
+        return new SymfonyResponse($html, SymfonyResponse::HTTP_OK, [
+            'content-type' => 'text/html'
+        ]);
+    }
+
     public function json($content)
     {
         $content = json_encode($content);

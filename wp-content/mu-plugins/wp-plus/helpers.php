@@ -3,6 +3,8 @@
 use SmarterCoding\WpPlus\App;
 use SmarterCoding\WpPlus\Helpers\Config;
 use SmarterCoding\WpPlus\Helpers\Response;
+use SmarterCoding\WpPlus\Helpers\Redirect;
+use SmarterCoding\WpPlus\Helpers\Session;
 
 function dd($dump)
 {
@@ -23,4 +25,14 @@ function config(): Config
 function response(): Response
 {
     return new Response();
+}
+
+function redirect(): Redirect
+{
+    return new Redirect();
+}
+
+function session(): Session
+{
+    return app()->singleton(Session::class);
 }
