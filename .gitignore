@@ -5,3 +5,5 @@
 !/wp-content/themes/
 !/wp-content/mu-plugins/
 /wp-content/themes/index.php
+!/composer.json
+!/composer.lock

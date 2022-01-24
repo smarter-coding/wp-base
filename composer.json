@@ -1,0 +1,6 @@
+{
+    "require": {
+        "composer/installers": "^2.0",
+        "smartercoding/wp-plus": "^1.0"
+    }
+}
