@@ -10,9 +10,11 @@ use SmarterCoding\WpBase\Requests\TestRequest;
 $themeServiceProvider = new ThemeServiceProvider();
 $themeServiceProvider->boot();
 
-Router::middleware('web', function() {
+Router::middleware('auth', function() {
 
     Router::get('/foo', function(Request $request) {
+        echo session()->get('foo');
+
         return response()
             ->html("
                 <form method='post'>

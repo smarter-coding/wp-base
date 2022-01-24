@@ -3,6 +3,7 @@
 namespace SmarterCoding\WpPlus\Helpers;
 
 use AltoRouter;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use SmarterCoding\WpPlus\Structs\Request;
 use ReflectionParameter;
 
@@ -38,6 +39,8 @@ class Router
                             $instance = new $class();
                             $instance->run($request);
                         }
+                    } else {
+                        throw new \Exception("Middleware '$middleware' not registered");
                     }
                 }
             }

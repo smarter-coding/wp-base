@@ -4,7 +4,7 @@ namespace SmarterCoding\WpBase\Providers;
 
 use BoxyBird\Inertia\Inertia;
 use SmarterCoding\WpBase\Factories\PostFactory;
-use SmarterCoding\WpBase\Middleware\Web;
+use SmarterCoding\WpBase\Middleware\Auth;
 use SmarterCoding\WpPlus\ServiceProvider;
 use SmarterCoding\WpPlus\Helpers\Asset;
 use SmarterCoding\WpPlus\Helpers\Router;
@@ -20,8 +20,8 @@ class ThemeServiceProvider extends ServiceProvider
     ];
 
     protected $middleware = [
-        'web' => [
-            Web::class
+        'auth' => [
+            Auth::class
         ]
     ];
 
