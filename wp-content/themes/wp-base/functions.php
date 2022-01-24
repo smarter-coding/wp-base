@@ -13,7 +13,7 @@ $themeServiceProvider->boot();
 Router::middleware('auth', function() {
 
     Router::get('/foo', function(Request $request) {
-        echo session()->get('foo');
+        echo session()->get('message');
 
         return response()
             ->html("
@@ -32,7 +32,7 @@ Router::middleware('auth', function() {
     }, 'foo.show');
 
     Router::post('/foo', function(TestRequest $request) {
-        session()->flash('foo', 'bar');
+        session()->flash('message', 'Post request sent successfully.');
         redirect()->route('foo.show');
     }, 'foo.handle');
 
