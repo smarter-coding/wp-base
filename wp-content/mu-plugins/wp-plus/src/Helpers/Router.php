@@ -32,9 +32,12 @@ class Router
             if (isset($meta['middleware'])) {
                 foreach ($meta['middleware'] as $middleware) {
                     if (isset(app()->get('middleware')[$middleware])) {
-                        $class = app()->get('middleware')[$middleware];
-                        $instance = new $class();
-                        $instance->run($request);
+                        $classes = app()->get('middleware')[$middleware];
+
+                        foreach ($classes as $class) {
+                            $instance = new $class();
+                            $instance->run($request);
+                        }
                     }
                 }
             }

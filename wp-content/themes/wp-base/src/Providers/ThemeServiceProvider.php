@@ -19,17 +19,19 @@ class ThemeServiceProvider extends ServiceProvider
         'post' => PostFactory::class
     ];
 
+    protected $middleware = [
+        'web' => [
+            Web::class
+        ]
+    ];
+
     public function boot()
     {
         parent::boot();
 
-        app()->merge('middleware', [
-            'web' => Web::class
-        ]);
-
-        $this->loadConfig(__DIR__ . '/../../config');
-        $this->loadMigrations(__DIR__ . '/../../migrations');
-        $this->loadTranslations(__DIR__ . '/../../lang', 'theme');
+        $this->loadConfigFrom(__DIR__ . '/../../config');
+        $this->loadMigrationsFrom(__DIR__ . '/../../migrations');
+        $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'theme');
     }
 
     public function afterSetupTheme()

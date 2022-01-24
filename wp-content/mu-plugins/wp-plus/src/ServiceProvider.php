@@ -6,17 +6,17 @@ use WP_CLI;
 
 class ServiceProvider
 {
-    public function loadConfig($path)
+    public function loadConfigFrom($path)
     {
         config()->load($path);
     }
 
-    public function loadMigrations($path)
+    public function loadMigrationsFrom($path)
     {
         app()->push('migrations', $path);
     }
 
-    public function loadTranslations($path, $namespace)
+    public function loadTranslationsFrom($path, $namespace)
     {
         trans()->load($path, $namespace);
     }
@@ -36,6 +36,10 @@ class ServiceProvider
 
         if (isset($this->factories)) {
             $app->merge('factories', $this->factories);
+        }
+
+        if (isset($this->middleware)) {
+            $app->merge('middleware', $this->middleware);
         }
 
         if (class_exists('WP_CLI') && isset($this->commands)) {
