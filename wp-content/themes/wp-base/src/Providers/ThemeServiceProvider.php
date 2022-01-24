@@ -4,6 +4,7 @@ namespace SmarterCoding\WpBase\Providers;
 
 use BoxyBird\Inertia\Inertia;
 use SmarterCoding\WpBase\Factories\PostFactory;
+use SmarterCoding\WpBase\Middleware\Web;
 use SmarterCoding\WpPlus\ServiceProvider;
 use SmarterCoding\WpPlus\Helpers\Asset;
 use SmarterCoding\WpPlus\Helpers\Router;
@@ -21,6 +22,10 @@ class ThemeServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
+
+        app()->merge('middleware', [
+            'web' => Web::class
+        ]);
 
         $this->loadConfig(__DIR__ . '/../../config');
         $this->loadMigrations(__DIR__ . '/../../migrations');

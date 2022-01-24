@@ -18,14 +18,6 @@ class Router
     public static function init()
     {
         if ($route = self::router()->match()) {
-            $meta = $route['meta'];
-
-            if (isset($meta['middleware'])) {
-                foreach ($meta['middleware'] as $middleware) {
-                    echo $middleware; // todo: instantiate and run middleware
-                }
-            }
-
             $requestType = (new ReflectionParameter($route['target'], 'request'))
                 ->getType()
                 ->getName();
@@ -34,6 +26,18 @@ class Router
             $request = $requestType::createFromGlobals();
             $request->setRouteParameters($route['params']);
             $request->validate();
+
+            $meta = $route['meta'];
+
+            if (isset($meta['middleware'])) {
+                foreach ($meta['middleware'] as $middleware) {
+                    if (isset(app()->get('middleware')[$middleware])) {
+                        $class = app()->get('middleware')[$middleware];
+                        $instance = new $class();
+                        $instance->run($request);
+                    }
+                }
+            }
 
             $response = call_user_func($route['target'], $request);
             $response->send();
